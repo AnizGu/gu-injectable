@@ -1,0 +1,29 @@
+{
+  "name": "gu-injectable",
+  "version": "1.0.0",
+  "description": "A Simple Injection library",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnizGu/gu-injectable.git"
+  },
+  "keywords": [
+    "injection",
+    "injectable"
+  ],
+  "author": "HectorGu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnizGu/gu-injectable/issues"
+  },
+  "homepage": "https://github.com/AnizGu/gu-injectable#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3",
+    "typescript": "^4.0.3"
+  }
+}
