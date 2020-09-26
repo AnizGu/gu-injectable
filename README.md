@@ -153,6 +153,74 @@ console.log(test.teacher.student);
 // 结果为 Student {name: "Jhon", age: 12}
 ```
 
+## create-react-app 的项目遇到问题？
+
+因为库使用了`reflect-metadata`，需要做修改才能正常运行。
+跟着下面步骤配置，就能正常运行了😁😁😁😁
+
+### 安装 react-app-rewired
+
+```bash
+npm install react-app-rewired --dev
+or
+yarn add -D react-app-rewired
+```
+
+### 安装 customize-cra
+
+```bash
+npm install customize-cra --dev
+or
+yarn add -D customize-cra
+```
+
+### 安装 Babel 插件
+
+```bash
+npm install babel-plugin-transform-typescript-metadata @babel/plugin-proposal-decorators --dev
+or
+yarn add -D babel-plugin-transform-typescript-metadata @babel/plugin-proposal-decorators
+```
+
+## 添加 config-overrides.js
+
+```js
+const { override, useBabelRC } = require('customize-cra');
+module.exports = override(useBabelRC());
+```
+
+### 添加。babelrc
+
+```json
+{
+    "plugins": [
+        "babel-plugin-transform-typescript-metadata",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ]
+    ]
+}
+```
+
+### 修改 package.json
+
+```diff
+/* package.json */
+
+  "scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+}
+```
+
 ## License
 
 MIT © [AnizGu](https://github.com/AnizGu)
